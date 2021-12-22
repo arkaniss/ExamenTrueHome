@@ -1,0 +1,76 @@
+﻿@model ExamenTrueHome.Models.PropertyViewModel
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<br />
+<br />
+<h3>Editar</h3>
+<form asp-action="Edit" method="post">
+    <div class="row px-2 mx-2 border">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input asp-for="Property.Id" type="hidden" />
+        <div class="col-10 offset-1 mt-4">
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Property.Title"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Property.Title" class="form-control" />
+                    <span asp-validation-for="Property.Title" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Property.Address"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Property.Address" class="form-control" />
+                    <span asp-validation-for="Property.Address" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Property.Description"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Property.Description" class="form-control" />
+                    <span asp-validation-for="Property.Description" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Property.Status_Id"></label>
+                </div>
+                <div class="col-8">
+                    @Html.DropDownListFor(m=> m.Property.Status_Id, Model.Statuses,"Selecciona un Status", new {@class="form-control" } )
+                    
+                    <span asp-validation-for="Property.Status_Id" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-8 offset-4">
+                    <div class="row">
+                        <div class="col">
+                            <button type="submit" class="btn btn-primary form-control">Guardar</button>
+                            &nbsp;
+                        </div>
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-info form-control">Regresar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</form>
+
+
+
+
